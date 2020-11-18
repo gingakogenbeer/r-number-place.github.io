@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+/* --------------------------------
+ * tag
+ * -------------------------------- */
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: #f6f7fb;
+  color: #333;
+  font-size: 20px;
+  font-family: 'Noto Serif', serif;
+}
+h1{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+table {
+  width: 400px;
+  height: 380px;
+  table-layout: fixed;
+  border-collapse:collapse;
+  
+}
+td {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border: dotted 1px #90a4ff; 
+}
+section {
+  margin: 20px 20px;
+  display: block;
+}
+/* --------------------------------
+ * class
+ * -------------------------------- */
+.container{
+  width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.explain{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 16px;
+}
+.diff-level{
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 20px;
+}
+.l-lu{
+  border-left:#3923ff solid 2px;
+  border-top:#3923ff solid 2px;
+}
+.l-u{
+  border-top:#3923ff solid 2px;
+}
+.l-ur{
+  border-top:#3923ff solid 2px;
+  border-right:#3923ff solid 2px;
+}
+.l-l{
+  border-left:#3923ff solid 2px;
+}
+.l-r{
+  border-right:#3923ff solid 2px;
+}
+.l-dl{
+  border-left:#3923ff solid 2px;
+  border-bottom:#3923ff solid 2px;
+}
+.l-d{
+  border-bottom:#3923ff solid 2px;
+}
+.l-rd{
+  border-right:#3923ff solid 2px;
+  border-bottom:#3923ff solid 2px;
+}
+.input-prop{
+  width: 20px;
+  height: 20px;
+  color: rgb(31, 56, 138);
+  outline: none;
+  text-align: center;
+}
+.input-prop-df{
+  width: 30px;
+  height: 30px;
+  color:rgb(161, 49, 189);
+  outline: none;
+  text-align: center;
+}
