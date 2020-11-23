@@ -33,7 +33,7 @@ function setNumber(){
         }
     }
 }
-/* Random number generation 0<= retun <max */
+/* Random number generation 0<= return <max */
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
