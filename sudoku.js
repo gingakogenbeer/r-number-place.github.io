@@ -133,7 +133,7 @@ function setProperty(){
     }
 }
 function valueChanged(f){
-    let fCheck = fillCheck();
+    let [fCheck, tmp] = fillCheck();
     let wCheck = false;
     
     if(fCheck === true){
@@ -143,7 +143,8 @@ function valueChanged(f){
         stopTimer();
         setProperty();
     }
-    if(thcClick === 0){
+//change rotation trigger to timer from click
+/*    if(thcClick === 0){
         thcClick = getRandomInt(10);
     }
     countClick += 1;
@@ -152,17 +153,20 @@ function valueChanged(f){
         countClick = 0;
         thcClick = 0;
     }
+*/
 }
 function fillCheck(){
-    var ret = true;
+    let ret = true;
+    let count = 0;
     for(var i=1; i<10; i++){
         for(var j=1; j<10; j++){
             if (document.getElementById(`cell-${i}-${j}`).value === ''){
                 ret = false;
+                count++;
             }
         }
     }
-    return ret;
+    return [ret, count];
 }
 function waCheck(){
     let ret = true;
@@ -199,7 +203,7 @@ function waColumnCheck(i){
     }
     return ret;
 }
-function setTimer(){
+function startTimer(){
     startTime = performance.now();
 }
 function stopTimer(){
@@ -209,7 +213,6 @@ function stopTimer(){
     alert(`Congratulations!\n\nyour time is ${min}min${second}sec`);
 }
 function rotateSeed(r){
-    let s, e;
     switch (r) {
         case 0:             //rotation PI/2
             seteMatrix(1);
@@ -265,28 +268,49 @@ function rotate(arr){
 }
 function levelEasy(l){
     level = l;
+    clearInterval(rotateTimer);
     initNumber();
     setNumber();
     cellMask();
     setProperty();
-    setTimer();
+    startTimer();
+    rotateTimer = setInterval(countUp, delay);
 }
 function levelMiddle(l){
     level = l;
+    clearInterval(rotateTimer);
     initNumber();
     setNumber();
     cellMask();
     setProperty();
-    setTimer();
+    startTimer();
+    rotateTimer = setInterval(countUp, delay);
 }
 function levelHard(l){
     level = l;
+    clearInterval(rotateTimer);
     initNumber();
     setNumber();
     cellMask();
     setProperty();
-    setTimer();
+    startTimer();
+    rotateTimer = setInterval(countUp, delay);
 }
+/*---------------------------------------------
+ *
+ *  Timer Event
+ *
+ */
+let delay = 10000;
+let countUp = function(){
+    rotateSeed(getRandomInt(3));
+    let [tmp, tmp2] = fillCheck();
+    //The fewer the free cell, the more annoying the rotation just becomes. So stop.
+    if(tmp2 < 10){
+        clearInterval(rotateTimer);
+    }
+}
+let rotateTimer = setInterval(countUp, delay);
 /*---------------------------------------------
  *
  *  Keydown Event
@@ -350,4 +374,5 @@ initNumber();
 setNumber();
 cellMask();
 setProperty();
-setTimer();
+startTimer();
+
