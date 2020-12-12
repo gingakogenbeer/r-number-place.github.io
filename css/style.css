@@ -119,8 +119,78 @@ section {
 .main-nav a:hover{
   color: #f6f7fb;
 }
-.contact-form{
+.contact-main{
   width: 780px;
   margin-left: auto;
   margin-right: auto;
+}
+.contact-form{
+  height: 200px;
+  width: 780px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-name input{
+  width: 780px;
+  background-color:rgb(255, 255, 255);
+  border-color: rgb(134, 134, 134);
+  border: 1px solid rgb(134, 134, 134);
+}
+.contact-name input:focus{
+  outline: none;
+}
+.contact-name label::after{
+  color:rgb(255, 255, 255);
+  font-size: 12px;
+  content: '任意';
+  background-color:rgb(134, 134, 134);
+  padding: 1px 3px;
+  margin-left: 5px;
+}
+.contact-mail input{
+  width: 780px;
+  background-color:rgb(255, 255, 255);
+  border-color: rgb(134, 134, 134);
+  border: 1px solid rgb(134, 134, 134);
+}
+.contact-mail input:focus{
+  outline: none;
+}
+.contact-mail label::after{
+  color:rgb(255, 255, 255);
+  font-size: 12px;
+  content: '任意';
+  background-color: rgb(134, 134, 134);
+  padding: 1px 3px;
+  margin-left: 5px;
+}
+.contact-content textarea{
+  height: 150px;
+  width: 780px;
+  background-color:rgb(255, 255, 255);
+  border: 1px solid rgb(134, 134, 134);
+}
+.contact-content textarea:focus{
+  outline: none;
+}
+.contact-content label::after{
+  color:rgb(255, 255, 255);
+  font-size: 12px;
+  content: '必須';
+  background-color: #ee6557;
+  padding: 1px 3px;
+  margin-left: 5px;
+}
+.contact-submit input{
+
+  background-image: linear-gradient(180deg, #525252, #e5f4fc);
+  width: 150px;
+  margin-left: 315px;
+}
+.contact-submit input:hover{
+  background-image: linear-gradient(180deg, #8b68db, #e5f4fc);
+}
+.contact-submit input:focus{
+  outline: none;
 }

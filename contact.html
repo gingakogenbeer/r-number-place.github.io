@@ -18,15 +18,30 @@
                 </ul>
             </nav>
         </div>
-        <div class="contact-form">
+        <div class="contact-main">
             <h1>CONTACT</h1>
             <p>こちらはRotation Number Placeのお問い合わせページです</p>
             <p>個人の趣味の範囲で作成しているため、<br>お問い合わせ内容に迅速に対応することが難しいです</p>
             <p>その上で、気になることがありましたら、下記よりお問い合わせ下さい</p>
-            <section>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdJTh-e70GswV2yregsAnHkogVE5xUxyOwMHzIKDU-MhABKNQ/viewform?embedded=true" width="800" height="600" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>            </section>
+        </div>
+        <div class="contact-form">
+            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdJTh-e70GswV2yregsAnHkogVE5xUxyOwMHzIKDU-MhABKNQ/formResponse" method="post">
+                <div class="contact-name">
+                    <p><label>お名前</label></p>
+                    <p><input type="text" name="entry.1918897786" value="" autocomplete="off"  placeholder="ななし　たろう" ></p>
+                </div>
+                <div class="contact-mail">
+                    <p><label>メールアドレス</label></p>
+                    <p><input type="email" name="entry.1938905791" value="" autocomplete="off"  placeholder="example@mail.com" ></p>
+                </div>
+                <div class="contact-content">
+                    <p><label>お問い合わせ内容</label></p>
+                    <p><textarea required name="entry.1261627404" autocomplete="off" placeholder="ここにお問い合わせ内容をご入力ください"></textarea></p>
+                </div>
+                <div class="contact-submit">
+                    <input type="submit" value="送信">
+                </div>
+            </form>
         </div>
     </body>
-
-
 </html>
