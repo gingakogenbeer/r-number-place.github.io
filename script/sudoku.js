@@ -1,9 +1,11 @@
+let htmlFileName = window.location.href.split('/').pop();
 const reset = 100;  //threshold for backtrack when create NP
 let level = 25;
 let startTime = 0;
 let resetCount = 0;
 let countClick = 0;
 let thcClick = 0;
+let strTime = 0;
 /*---------------------------------------------
  *
  *  Function definition
@@ -207,10 +209,13 @@ function startTimer(){
     startTime = performance.now();
 }
 function stopTimer(){
+    clearInterval(rotateTimer);
     endTime = performance.now();
     let min = Math.floor((endTime - startTime)/1000/60);
     let second = Math.round((endTime - startTime)/1000 - min*60);
-    alert(`Congratulations!\n\nyour time is ${min}min${second}sec`);
+    let setVal = `${min}min ${second}sec/${level}/${(delay/1000)}`;
+    sessionStorage.setItem('RNumberPlace', setVal);
+    window.location.href = "solve.html"
 }
 function rotateSeed(r){
     switch (r) {
@@ -303,11 +308,11 @@ function levelHard(l){
  */
 let delay = 10000;
 let countUp = function(){
-    rotateSeed(getRandomInt(3));
     let [tmp, tmp2] = fillCheck();
     //The fewer the free cell, the more annoying the rotation just becomes. So stop.
     if(tmp2 < 10){
-        clearInterval(rotateTimer);
+    }else{
+        rotateSeed(getRandomInt(3));
     }
 }
 let rotateTimer = setInterval(countUp, delay);
@@ -360,7 +365,7 @@ function handleKeydown(event){
     let p = document.getElementById(`cell-${i}-${j}`);
     if(p.readOnly === true){
         p.select();
-        window.setTimeout(function() { p.select(); }, 1);   //I dont know but this is Magic func 
+        window.setTimeout(function() { p.select(); }, 1);
     }else{
         p.focus();
     }
@@ -370,9 +375,9 @@ function handleKeydown(event){
  *  Function exec
  *
  */
+sessionStorage.removeItem('RNumberPlace');
 initNumber();
 setNumber();
 cellMask();
 setProperty();
 startTimer();
-

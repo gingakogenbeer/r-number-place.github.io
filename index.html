@@ -2,18 +2,20 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>Number Place</title>
-        <meta name="description" content="number place">
+        <title>Rotation Number Place</title>
+        <meta name="description" content="Rotaion Number Place. NP table is rotate periodically.">
         <meta name="google-site-verification" content="Huh1tj-R7UKmD5MeeFb_QEPemAmzkVoanfN2k-ORxhk" />
 
         <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">    
         <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" type="image/x-icon" href="images/rno.ico">
     </head>
     <body>
         <div class="header">
             <nav>
                 <ul class="main-nav">
+                    <li><a href=""></a></li>
                     <li><a href="contact.html">contact</a></li>
                 </ul>
             </nav>
@@ -25,12 +27,12 @@
                     <p>さあ、右のテーブルのマスを埋めましょう！</p><br>
                     <!--<p>下のレベルから難易度を選択できます</p>-->
                     <div class="diff-level">
-                        <button type="button" onclick="levelEasy(25)">易しい</button>
-                        <button type="button" onclick="levelMiddle(35)">普  通</button>
-                        <button type="button" onclick="levelHard(40)">難しい</button>
+                        <button type="button" onclick="levelEasy(25)">Easy</button>
+                        <button type="button" onclick="levelMiddle(35)">Normal</button>
+                        <button type="button" onclick="levelHard(40)">Hard</button>
                     </div>
                 </div>
-                <table>
+                <table class="number-place">
                     <tbody>
                         <tr>
                             <td class="l-lu" ><input class="input-prop" size="2" name="text" autocomplete="off" maxlength="1" onInput="valueChanged(this)" id="cell-1-1"></td>
@@ -136,8 +138,7 @@
             </div>
         </section>
 
-
-    <script src="sudoku.js"></script>
+    <script src="script/sudoku.js"></script>
     </body>
 
 

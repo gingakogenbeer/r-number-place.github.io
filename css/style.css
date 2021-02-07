@@ -20,12 +20,9 @@ h1{
   margin-top: 20px;
   margin-bottom: 50px;
 }
-table {
-  width: 400px;
-  height: 380px;
+.container table {
   table-layout: fixed;
   border-collapse:collapse;
-  
 }
 td {
   width: 20px;
@@ -37,9 +34,17 @@ section {
   margin: 20px 20px;
   display: block;
 }
+.data table {
+  table-layout: fixed;
+  border-collapse:collapse;
+}
 /* --------------------------------
  * class
  * -------------------------------- */
+.number-place{
+  width: 400px;
+  height: 380px;
+ }
 .container{
   width: 780px;
   margin-left: auto;
@@ -105,11 +110,13 @@ section {
   height: 30px;
 }
 .main-nav{
-/*  display: flex; */
+  display: flex;
+  justify-content: space-between;
   text-align: right;
   font-size: 16px;
   text-transform: uppercase;
   padding-top:4px;
+  margin-left: 50px;
   margin-right: 50px;
   list-style: none;
 }
@@ -183,7 +190,6 @@ section {
   margin-left: 5px;
 }
 .contact-submit input{
-
   background-image: linear-gradient(180deg, #525252, #e5f4fc);
   width: 150px;
   margin-left: 315px;
@@ -193,4 +199,30 @@ section {
 }
 .contact-submit input:focus{
   outline: none;
+}
+.data-table{
+  width: 780px;
+  height: 250px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto; 
+  border:#876ec2 solid 2px;
+}
+.head-tr{
+  height: 5px;
+  background-color: #9f83e0;
+  color: #ffffff;
+  border-bottom:#876ec2 solid 2px;
+}
+.content-tr{
+  background-color: #e2d8f5;
+}
+.item-td{
+  width:40%;
+  border-bottom: dotted 1px #876ec2; 
+}
+.result-td{
+  width:60%;
+  border-left:#876ec2 solid 2px;
+  border-bottom: dotted 1px #876ec2; 
 }
