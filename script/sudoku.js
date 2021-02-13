@@ -5,12 +5,24 @@ let startTime = 0;
 let resetCount = 0;
 let countClick = 0;
 let thcClick = 0;
-let strTime = 0;
 /*---------------------------------------------
  *
  *  Function definition
  *
  */
+function start(){
+    setNumber();
+    cellMask();
+    setProperty();
+    startTimer();
+}
+function reStart(){
+    initNumber();
+    setNumber();
+    cellMask();
+    setProperty();
+    startTimer();
+}
 function initNumber(){
     for(var i=1; i<10; i++){
         for(var j=1; j<10; j++){
@@ -145,7 +157,7 @@ function valueChanged(f){
         stopTimer();
         setProperty();
     }
-//change rotation trigger to timer from click
+//comment due to change rotation trigger to timer from click
 /*    if(thcClick === 0){
         thcClick = getRandomInt(10);
     }
@@ -274,32 +286,32 @@ function rotate(arr){
 function levelEasy(l){
     level = l;
     clearInterval(rotateTimer);
-    initNumber();
-    setNumber();
-    cellMask();
-    setProperty();
-    startTimer();
+    reStart();
     rotateTimer = setInterval(countUp, delay);
 }
 function levelMiddle(l){
     level = l;
     clearInterval(rotateTimer);
-    initNumber();
-    setNumber();
-    cellMask();
-    setProperty();
-    startTimer();
+    reStart();
     rotateTimer = setInterval(countUp, delay);
 }
 function levelHard(l){
     level = l;
     clearInterval(rotateTimer);
-    initNumber();
-    setNumber();
-    cellMask();
-    setProperty();
-    startTimer();
+    reStart();
     rotateTimer = setInterval(countUp, delay);
+}
+function rITimeChanged(f){
+    if(isNaN(f.value) == true){
+        f.value = preDelay/1000;
+        return;
+    }
+    clearInterval(rotateTimer);
+    f.value = (f.value<1 ? 1 : parseInt(f.value));
+    delay = f.value * 1000;
+    preDelay = delay;
+    rotateTimer = setInterval(countUp, delay);
+    reStart();
 }
 /*---------------------------------------------
  *
@@ -307,6 +319,8 @@ function levelHard(l){
  *
  */
 let delay = 10000;
+let preDelay = delay;
+document.getElementById("cell-0-0").value = delay / 1000;
 let countUp = function(){
     let [tmp, tmp2] = fillCheck();
     //The fewer the free cell, the more annoying the rotation just becomes. So stop.
@@ -327,9 +341,14 @@ function handleKeydown(event){
     if(!strfId.includes("cell")){
         return;
     }
-    let temp = strfId.replace(/[^1-9]/g, "");
-    let i = Math.floor((temp*1)/10);
-    let j = temp%10;
+    let temp = strfId.replace(/[^0-9]/g, "");
+    let i = temp[0] * 1;
+    let j = temp[1] * 1;
+
+    if((i==0 && j==0) && event.key=='Enter'){
+        document.getElementById(`cell-${i}-${j}`).blur();
+        return;
+    }
 
     switch (event.key) {
         case 'ArrowUp':
@@ -376,8 +395,4 @@ function handleKeydown(event){
  *
  */
 sessionStorage.removeItem('RNumberPlace');
-initNumber();
-setNumber();
-cellMask();
-setProperty();
-startTimer();
+start();

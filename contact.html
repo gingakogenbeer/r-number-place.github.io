@@ -27,23 +27,48 @@
             <p>お気軽に気になることや感想などありましたら、下記からお問い合わせ下さい</p>
         </div>
         <div class="contact-form">
-            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdJTh-e70GswV2yregsAnHkogVE5xUxyOwMHzIKDU-MhABKNQ/formResponse" method="post">
-                <div class="contact-name">
-                    <p><label>お名前</label></p>
-                    <p><input type="text" name="entry.1918897786" value="" autocomplete="off"  placeholder="ななし　たろう" ></p>
-                </div>
-                <div class="contact-mail">
-                    <p><label>メールアドレス</label></p>
-                    <p><input type="email" name="entry.1938905791" value="" autocomplete="off"  placeholder="example@mail.com" ></p>
-                </div>
-                <div class="contact-content">
-                    <p><label>お問い合わせ内容</label></p>
-                    <p><textarea required name="entry.1261627404" autocomplete="off" placeholder="ここにお問い合わせ内容をご入力ください"></textarea></p>
-                </div>
-                <div class="contact-submit">
-                    <input type="submit" value="送信">
-                </div>
-            </form>
+            <div class="contact-name">
+                <p><label>お名前</label></p>
+                <p><input id="usname" type="text" name="entry.1918897786" value="" autocomplete="off"  placeholder="ななし　たろう" ></p>
+            </div>
+            <div class="contact-mail">
+                <p><label>メールアドレス</label></p>
+                <p><input id="mail" type="email" name="entry.1938905791" value="" autocomplete="off"  placeholder="example@mail.com" ></p>
+            </div>
+            <div class="contact-content">
+                <p><label>お問い合わせ内容</label></p>
+                <p><textarea id="msg" required name="entry.1261627404" autocomplete="off" placeholder="ここにお問い合わせ内容をご入力ください"></textarea></p>
+            </div>
+            <div class="contact-submit">
+                <input type="submit" onClick="postToGoogle()" value="送信">
+            </div>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            function postToGoogle() {
+                let usname = $("#usname").val();
+                let mail = $('#mail').val();
+                let msg = $('#msg').val();
+                $.ajax({
+                    url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdJTh-e70GswV2yregsAnHkogVE5xUxyOwMHzIKDU-MhABKNQ/formResponse",
+                    data: { "entry.1918897786": usname, 
+                    "entry.1938905791": mail, 
+                    "entry.1261627404": msg },
+                    type: "POST",
+                    dataType: "xml",
+                    statusCode: {
+                        0: function () {
+                            //document.getElementById("message").innerHTML = "Your form has been submitted!";
+                            window.location.replace("thanks.html");
+                        },
+                        200: function () {
+                            //document.getElementById("message").innerHTML = "Your form has been submitted!";
+                            console.log("Success");
+                            window.location.replace("thanks.html");
+                        }
+                    }
+                });
+            }
+        </script>
     </body>
 </html>

@@ -58,10 +58,39 @@ section {
   justify-content: space-between;
   font-size: 16px;
 }
-.diff-level{
+.diff-level-button-group{
   display: flex;
   justify-content: space-between;
   margin: 0px 20px;
+}
+.diff-level-button-group label{
+  cursor: pointer;
+  background-color: #333;
+  padding: 5px 20px;
+}
+.diff-button{
+  display: none;
+}
+.diff-button:checked + .lbl-diff {
+  background-color: rgb(134, 134, 134);
+}
+.r-interval{
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 10px 20px 20px;
+}
+.r-interval input{
+  outline: none;
+  width: 80px;
+  text-align: center;
+  border:#3923ff solid 2px;
+}
+.r-interval input, label{
+  margin-top:auto;
+  margin-bottom:auto;
+}
+.lbl-diff{
+  color: #f6f7fb;
 }
 .l-lu{
   border-left:#3923ff solid 2px;
@@ -190,12 +219,15 @@ section {
   margin-left: 5px;
 }
 .contact-submit input{
-  background-image: linear-gradient(180deg, #525252, #e5f4fc);
+  /*background-image: linear-gradient(180deg, #525252, #e5f4fc);*/
+  background-color: #333;
+  color: #f6f7fb;
   width: 150px;
   margin-left: 315px;
 }
 .contact-submit input:hover{
-  background-image: linear-gradient(180deg, #8b68db, #e5f4fc);
+  /*background-image: linear-gradient(180deg, #8b68db, #e5f4fc);*/
+  background-color:  rgb(134, 134, 134);
 }
 .contact-submit input:focus{
   outline: none;
@@ -225,4 +257,8 @@ section {
   width:60%;
   border-left:#876ec2 solid 2px;
   border-bottom: dotted 1px #876ec2; 
+}
+.thanks h1{
+  text-align: center;
+  padding-top: 100px;
 }

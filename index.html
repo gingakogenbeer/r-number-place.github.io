@@ -24,12 +24,23 @@
         <section>
             <div class="container">
                 <div class="explain">
-                    <p>さあ、右のテーブルのマスを埋めましょう！</p><br>
+                    <p>さあ、テーブルのマスを埋めましょう！</p><br>
                     <!--<p>下のレベルから難易度を選択できます</p>-->
-                    <div class="diff-level">
-                        <button type="button" onclick="levelEasy(25)">Easy</button>
-                        <button type="button" onclick="levelMiddle(35)">Normal</button>
-                        <button type="button" onclick="levelHard(40)">Hard</button>
+                    <div class="param">
+                        <div class="r-interval">
+                            <label>Rotaion Interval</label>
+                            <div><input name="text" autocomplete="off" maxlength="3" onBlur="rITimeChanged(this)" id="cell-0-0"> sec</div>
+                        <!--<button type="button" onclick="minusInterval(-1)">－</button>
+                            <button type="button" onclick="plusInterval(1)">＋</button>-->
+                        </div>
+                        <div class="diff-level-button-group">
+                            <input id="diff-1" class="diff-button" type="radio" name="diff" onchange="levelEasy(25)" autocomplete="off">
+                            <label for="diff-1" class="lbl-diff">Easy</label>
+                            <input id="diff-2" class="diff-button" type="radio"  name="diff" onchange="levelMiddle(35)" autocomplete="off" checked>
+                            <label for="diff-2" class="lbl-diff">Normal</label>
+                            <input id="diff-3" class="diff-button" type="radio"  name="diff" onchange="levelMiddle(40)" autocomplete="off">
+                            <label for="diff-3" class="lbl-diff">Hard</label>
+                        </div>
                     </div>
                 </div>
                 <table class="number-place">

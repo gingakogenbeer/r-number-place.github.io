@@ -19,7 +19,7 @@ switch (rDiff) {
     default:
 }
 let d = new Date();
-rDate = d.getFullYear() + '/' + `${d.getMonth() + 1}` + '/' + d.getDate() + ' ' + d.getHours() + '-' + d.getMinutes() + '-' + d.getSeconds();
+rDate = d.getFullYear() + '/' + `${d.getMonth() + 1}` + '/' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
 document.getElementById("id-date").innerHTML = rDate;
 document.getElementById("id-time").innerHTML = rTime;
 document.getElementById("id-diff").innerHTML = rDiff;
