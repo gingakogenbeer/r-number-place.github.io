@@ -11,17 +11,25 @@ let thcClick = 0;
  *
  */
 function start(){
-    setNumber();
-    cellMask();
-    setProperty();
-    startTimer();
+    try {
+        setNumber();
+        cellMask();
+        setProperty();
+        startTimer();
+    } catch (error) {
+        alert("作問に失敗しました。リロードしてください。。。");
+    }
 }
 function reStart(){
-    initNumber();
-    setNumber();
-    cellMask();
-    setProperty();
-    startTimer();
+    try {
+        initNumber();
+        setNumber();
+        cellMask();
+        setProperty();
+        startTimer();        
+    } catch (error) {
+        alert("作問に失敗しました。リロードしてください。。。");
+    }
 }
 function initNumber(){
     for(var i=1; i<10; i++){
@@ -59,13 +67,13 @@ function getIndex(arr, i, j){
     while(true) {
         var idx = getRandomInt(len);
 
-        /* Break if there is not deplicated number each row, col, block */
-        if ((rowCheck(arr[idx], j)) && (rowCheck(arr[idx], j)) && (blockCheck(arr[idx], i, j))) {
+        /* Break if there is not deplicated number each row, block */
+        if ((rowCheck(arr[idx], j)) && (blockCheck(arr[idx], i, j))) {
             ret = idx;
             break;
         }
         ccount += 1;
-        if (ccount > 50){
+        if (ccount > 30){
             rowClear(i);
             ret = -1;
             break;
@@ -115,6 +123,7 @@ function rowClear(i){
         document.getElementById(`cell-${i}-${j}`).value = '';
     }
 }
+//マスクの仕方を検討中。
 function cellMask(){
     var count = 0;
     while (true){
@@ -352,32 +361,16 @@ function handleKeydown(event){
 
     switch (event.key) {
         case 'ArrowUp':
-            if(i===1){
-                i = 9;
-            }else{
-                i--;
-            }
+            i = i===1 ? 9 : i-1;
             break;
         case 'ArrowRight':
-            if(j===9){
-                j = 1;
-            }else{
-                j++;
-            }
+            j = j===9 ? 1 : j+1;
             break;
         case 'ArrowDown':
-            if(i===9){
-                i = 1;
-            }else{
-                i++;
-            }
+            i = i===9 ? 1 : i+1;
             break;
         case 'ArrowLeft':
-            if(j===1){
-                j = 9;
-            }else{
-                j--;
-            }
+            j = j===1 ? 9 : j-1;
             break;
         default:
     }
